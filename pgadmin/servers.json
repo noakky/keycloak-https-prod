@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Keycload DB",
+            "Group": "Keycloak",
+            "Port": 5432,
+            "Username": "bn_keycloak",
+            "PassFile": "/pgpass", 
+            "Host": "postgresql",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "bitnami_keycloak"
+        }
+    }
+}
