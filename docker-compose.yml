@@ -29,6 +29,19 @@ services:
       - './ssl/key.pem:/opt/bitnami/keycloak/certs/key.pem'
     depends_on:
       - postgresql
+  pgadmin4:
+      container_name: pgadmin4
+      image: dpage/pgadmin4    
+      ports:
+          - 5053:443
+      volumes:
+          - './ssl/chain.pem:/certs/server.cert'
+          - './ssl/key.pem:/certs/server.key'
+          - './pgadmin/servers.json:/pgadmin4/servers.json'
+      environment:
+          - PGADMIN_DEFAULT_EMAIL=#<admin@example.com>
+          - PGADMIN_DEFAULT_PASSWORD=#<admin-password>
+          - PGADMIN_ENABLE_TLS=True
 volumes:
   postgresql_data:
     driver: local
